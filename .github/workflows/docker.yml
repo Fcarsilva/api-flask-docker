@@ -18,12 +18,12 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.fsilvaglobalntt1111 }}
-        password: ${{ secrets.Kamily-22 }}
+        username: ${{ secrets.DOCKER_USERNAME }}  # Usa o secret EXATAMENTE como está no GitHub
+        password: ${{ secrets.DOCKER_PASSWORD }}  # Usa o secret EXATAMENTE como está no GitHub
 
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
-        tags: ${{ secrets.fsilvaglobalntt1111 }}/api-flask-docker:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/api-flask-docker:latest  # Formato: usuario_dockerhub/nome_imagem:tag
